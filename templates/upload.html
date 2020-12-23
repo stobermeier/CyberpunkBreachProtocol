@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Image</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        tr {
+            border: solid;
+            border-width: 1px 0;
+        }
+
+        td {
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+
+    </style>
+</head>
+<body>
+
+{% if msg %}
+<h1>{{ msg }}</h1>
+{% endif %}
+
+<h1>Upload new File</h1>
+
+<form method=post enctype=multipart/form-data>
+    <p><input type=file name=file>
+        <input type=submit value=Upload>
+</form>
+
+<h1>Result:</h1>
+{% if img_src %}
+<img src="{{ img_src }}">
+{% endif %}
+
+{% if extraction_success %}
+<p> The extracted text from the image above is: </p>
+
+<form method="POST">
+    <table>
+        <tr>
+            <td><input type="text" size="1" id="e00" name="e00" value="{{row0[0:2]}}"></td>
+            <td><input type="text" size="1" id="e10" name="e10" value="{{row0[2:4]}}"></td>
+            <td><input type="text" size="1" id="e20" name="e20" value="{{row0[4:6]}}"></td>
+            <td><input type="text" size="1" id="e30" name="e30" value="{{row0[6:8]}}"></td>
+            <td><input type="text" size="1" id="e40" name="e40" value="{{row0[8:10]}}"></td>
+            <td><input type="text" size="1" id="e50" name="e50" value="{{row0[10:12]}}"></td>
+        </tr>
+        <tr>
+            <td><input type="text" size="1" id="e01" name="e01" value="{{row1[0:2]}}"></td>
+            <td><input type="text" size="1" id="e11" name="e11" value="{{row1[2:4]}}"></td>
+            <td><input type="text" size="1" id="e21" name="e21" value="{{row1[4:6]}}"></td>
+            <td><input type="text" size="1" id="e31" name="e31" value="{{row1[6:8]}}"></td>
+            <td><input type="text" size="1" id="e41" name="e41" value="{{row1[8:10]}}"></td>
+            <td><input type="text" size="1" id="e51" name="e51" value="{{row1[10:12]}}"></td>
+        </tr>
+        <tr>
+            <td><input type="text" size="1" id="e02" name="e02" value="{{row2[0:2]}}"></td>
+            <td><input type="text" size="1" id="e12" name="e12" value="{{row2[2:4]}}"></td>
+            <td><input type="text" size="1" id="e22" name="e22" value="{{row2[4:6]}}"></td>
+            <td><input type="text" size="1" id="e32" name="e32" value="{{row2[6:8]}}"></td>
+            <td><input type="text" size="1" id="e42" name="e42" value="{{row2[8:10]}}"></td>
+            <td><input type="text" size="1" id="e52" name="e52" value="{{row2[10:12]}}"></td>
+        </tr>
+        <tr>
+            <td><input type="text" size="1" id="e03" name="e03" value="{{row3[0:2]}}"></td>
+            <td><input type="text" size="1" id="e13" name="e13" value="{{row3[2:4]}}"></td>
+            <td><input type="text" size="1" id="e23" name="e23" value="{{row3[4:6]}}"></td>
+            <td><input type="text" size="1" id="e33" name="e33" value="{{row3[6:8]}}"></td>
+            <td><input type="text" size="1" id="e43" name="e43" value="{{row3[8:10]}}"></td>
+            <td><input type="text" size="1" id="e53" name="e53" value="{{row3[10:12]}}"></td>
+        </tr>
+        <tr>
+            <td><input type="text" size="1" id="e04" name="e04" value="{{row4[0:2]}}"></td>
+            <td><input type="text" size="1" id="e14" name="e14" value="{{row4[2:4]}}"></td>
+            <td><input type="text" size="1" id="e24" name="e24" value="{{row4[4:6]}}"></td>
+            <td><input type="text" size="1" id="e34" name="e34" value="{{row4[6:8]}}"></td>
+            <td><input type="text" size="1" id="e44" name="e44" value="{{row4[8:10]}}"></td>
+            <td><input type="text" size="1" id="e54" name="e54" value="{{row4[10:12]}}"></td>
+        </tr>
+        <tr>
+            <td><input type="text" size="1" id="e05" name="e05" value="{{row5[0:2]}}"></td>
+            <td><input type="text" size="1" id="e15" name="e15" value="{{row5[2:4]}}"></td>
+            <td><input type="text" size="1" id="e25" name="e25" value="{{row5[4:6]}}"></td>
+            <td><input type="text" size="1" id="e35" name="e35" value="{{row5[6:8]}}"></td>
+            <td><input type="text" size="1" id="e45" name="e44" value="{{row5[8:10]}}"></td>
+            <td><input type="text" size="1" id="e55" name="e55" value="{{row5[10:12]}}"></td>
+        </tr>
+    </table>
+    <br/>
+    <input type="text" id="ram" name="ram" value="Enter RAM">
+    <input type="text" id="seq" name="seq" value="Enter Sequence">
+    <input type="submit">
+</form>
+
+{% else %}
+The extracted text will be displayed here
+{% endif %}
+
+{% if solution %}
+<h1>Solution</h1>
+<p>{{solution}}</p>
+{% endif %}
+</body>
+</html>
