@@ -17,6 +17,8 @@ def breach(hexdump, ram, datamine1, datamine2, datamine3):
 
     sequences = []
 
+    ram = int(ram)
+
     if (ram >= len(datamine3)):
         # Datamine 3 must be in the sequence
         # Can it be combined?
@@ -55,4 +57,3 @@ def breach(hexdump, ram, datamine1, datamine2, datamine3):
         input('More? Following solutions will get worse.')
 
 
-breach(hexdump, 12, '1CBD1C', '1CE97A7A', '7ABD1CE9')
