@@ -22,4 +22,4 @@ Enter the Code Matrix, your RAM, and the three Datamine sequences (e.g. 1CE955).
 The solution will be provided in the console. Click any key to get to the next solution. However, the best solution will be present first.
 
 ## Contributing and License
-Feel free to contribute or further develop this idea in general. Make sure to use the MIT License adopting using my Code.
+Feel free to contribute or further develop this idea in general. Make sure to use the MIT License when adopting my Code.
