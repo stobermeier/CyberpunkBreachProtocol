@@ -1,5 +1,4 @@
-from ocr_to_hexdump import print_hexdump
-from solver import validate_hexdump, text_to_sequence
+from solver_helper import validate_hexdump, text_to_sequence
 import copy
 import numpy as np
 
@@ -88,7 +87,7 @@ def solve(hexdump, seq, ram):
     print("Hexdump valid!")
     ram = int(ram)
     print("Attempt to solve:")
-    print_hexdump(hexdump)
+    print(np.array(hexdump).T)
     print("\nFind sequence {} with {} RAM".format(seq, ram))
 
     print(seq)
