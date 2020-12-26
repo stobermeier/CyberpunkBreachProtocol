@@ -10,7 +10,7 @@ This is basically about selecting double hex values in a matrix in the right ord
 Each access point has three different possible combinations, called datamines. It is possible to solve several such datamines at the same access point.\
 Depending on your equipment, you can select different numbers of values (Buffer). This limits how many datamines the player can solve on one access point.
 
-![](images/data_breach.PNG)
+![](images/data_breach.png)
 
 Especially if you want to solve several sequences in such a data breach, you are faced with a quite complex problem, which you cannot solve so quickly in your head.
 
