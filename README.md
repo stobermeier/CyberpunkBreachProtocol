@@ -39,10 +39,15 @@ If you want to take a look at the python version you need the following:
 
 ## Usage
 
+Since it takes a bit of time to enter the code matrix into the tool, I recommend that you first consider whether the data breach of all datamines is even possible with the available buffer. \
+ Note that it is possible to join two datamines together, provided one ends with the same value as the other begins with. E.g. 1C7A55 and 55E9BD can be combined to 1C7A55E9BD 
+
 ### Web application
 
-The application can be found here: https://stobermeier.github.io/CyberpunkBreachProtocol/ \
+The application can be accessed [here](https://stobermeier.github.io/CyberpunkBreachProtocol/)!  \
 Just fill the Code Matrix, enter your RAM, the three Datamines, and click solve!
+
+![](images/web_interface_example.png)
 
 You might find it interesting to look at the console output of your browser to see what is going on.
 
