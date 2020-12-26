@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+      <title>Cyberpunk Breach Protocol Solver</title>
+      <meta name="author" content="Stefan Obermeier">
+      <meta name="description" content="Solve the breach protocol in Cyberpunk 2077 automatically" />
+      <link rel="icon" type="image/ico" href="/images/goggame-1423049311.ico" />
+      <!-- Bootstrap-->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+      <link rel="stylesheet" href="css/styles.css">
+   </head>
+   <body>
+      <div class="container-fluid">
+         <div class="d-flex justify-content-center">
+            <h2>Enter Code Matrix</h2>
+         </div>
+         <div class="row">
+            <div class="col"></div>
+            <div class="col">
+               <table class="table table-bordered table-sm">
+                  <tbody>
+                     <tr>
+                        <td><input type="text" size="1" id="e00" name="e00"></td>
+                        <td><input type="text" size="1" id="e10" name="e10"></td>
+                        <td><input type="text" size="1" id="e20" name="e20"></td>
+                        <td><input type="text" size="1" id="e30" name="e30"></td>
+                        <td><input type="text" size="1" id="e40" name="e40"></td>
+                        <td><input type="text" size="1" id="e50" name="e50"></td>
+                     </tr>
+                     <tr>
+                        <td><input type="text" size="1" id="e01" name="e01"></td>
+                        <td><input type="text" size="1" id="e11" name="e11"></td>
+                        <td><input type="text" size="1" id="e21" name="e21"></td>
+                        <td><input type="text" size="1" id="e31" name="e31"></td>
+                        <td><input type="text" size="1" id="e41" name="e41"></td>
+                        <td><input type="text" size="1" id="e51" name="e51"></td>
+                     </tr>
+                     <tr>
+                        <td><input type="text" size="1" id="e02" name="e02"></td>
+                        <td><input type="text" size="1" id="e12" name="e12"></td>
+                        <td><input type="text" size="1" id="e22" name="e22"></td>
+                        <td><input type="text" size="1" id="e32" name="e32"></td>
+                        <td><input type="text" size="1" id="e42" name="e42"></td>
+                        <td><input type="text" size="1" id="e52" name="e52"></td>
+                     </tr>
+                     <tr>
+                        <td><input type="text" size="1" id="e03" name="e03"></td>
+                        <td><input type="text" size="1" id="e13" name="e13"></td>
+                        <td><input type="text" size="1" id="e23" name="e23"></td>
+                        <td><input type="text" size="1" id="e33" name="e33"></td>
+                        <td><input type="text" size="1" id="e43" name="e43"></td>
+                        <td><input type="text" size="1" id="e53" name="e53"></td>
+                     </tr>
+                     <tr>
+                        <td><input type="text" size="1" id="e04" name="e04"></td>
+                        <td><input type="text" size="1" id="e14" name="e14"></td>
+                        <td><input type="text" size="1" id="e24" name="e24"></td>
+                        <td><input type="text" size="1" id="e34" name="e34"></td>
+                        <td><input type="text" size="1" id="e44" name="e44"></td>
+                        <td><input type="text" size="1" id="e54" name="e54"></td>
+                     </tr>
+                     <tr>
+                        <td><input type="text" size="1" id="e05" name="e05"></td>
+                        <td><input type="text" size="1" id="e15" name="e15"></td>
+                        <td><input type="text" size="1" id="e25" name="e25"></td>
+                        <td><input type="text" size="1" id="e35" name="e35"></td>
+                        <td><input type="text" size="1" id="e45" name="e45"></td>
+                        <td><input type="text" size="1" id="e55" name="e55"></td>
+                     </tr>
+                  </tbody>
+               </table>
+               <div class="form-group">
+                  <input type="text" class="form-control" id="ram" name="ram" placeholder="RAM">
+                  <input type="text" class="form-control" id="d1" name="d1" placeholder="Datamine_V1">
+                  <input type="text" class="form-control" id="d2" name="d2" placeholder="Datamine_V2">
+                  <input type="text" class="form-control" id="d3" name="d3" placeholder="Datamine_V3">
+               </div>
+               <div class="d-flex justify-content-center">
+                  <button class="btn" onclick="solve()">
+                     <div class="btn__content">
+                        Solve_
+                     </div>
+                     <span class="btn__label">r25</span>
+                  </button>
+               </div>
+            </div>
+            <div class="col"></div>
+         </div>
+         <hr/>
+         <div class="d-flex justify-content-center">
+            <h2>Solution</h2>
+         </div>
+         <div class="row">
+            <div class="col"></div>
+            <div class="col">
+               <div class="d-flex justify-content-center">
+                  <p id="seq_values">Sequence will be displayed here</p>
+               </div>
+               <table class="table table-bordered table-sm">
+                  <tbody>
+                     <tr>
+                        <td id="s00">--</td>
+                        <td id="s10">--</td>
+                        <td id="s20">--</td>
+                        <td id="s30">--</td>
+                        <td id="s40">--</td>
+                        <td id="s50">--</td>
+                     </tr>
+                     <tr>
+                        <td id="s01">--</td>
+                        <td id="s11">--</td>
+                        <td id="s21">--</td>
+                        <td id="s31">--</td>
+                        <td id="s41">--</td>
+                        <td id="s51">--</td>
+                     </tr>
+                     <tr>
+                        <td id="s02">--</td>
+                        <td id="s12">--</td>
+                        <td id="s22">--</td>
+                        <td id="s32">--</td>
+                        <td id="s42">--</td>
+                        <td id="s52">--</td>
+                     </tr>
+                     <tr>
+                        <td id="s03">--</td>
+                        <td id="s13">--</td>
+                        <td id="s23">--</td>
+                        <td id="s33">--</td>
+                        <td id="s43">--</td>
+                        <td id="s53">--</td>
+                     </tr>
+                     <tr>
+                        <td id="s04">--</td>
+                        <td id="s14">--</td>
+                        <td id="s24">--</td>
+                        <td id="s34">--</td>
+                        <td id="s44">--</td>
+                        <td id="s54">--</td>
+                     </tr>
+                     <tr>
+                        <td id="s05">--</td>
+                        <td id="s15">--</td>
+                        <td id="s25">--</td>
+                        <td id="s35">--</td>
+                        <td id="s45">--</td>
+                        <td id="s55">--</td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+            <div class="col"></div>
+         </div>
+      </div>
+      <!-- Bootstrap core JS-->
+      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+         crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+         crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+         crossorigin="anonymous"></script>
+      <!-- Solver Logic -->
+      <script src="js/scripts.js"></script>
+   </body>
+</html>
