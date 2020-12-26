@@ -1,5 +1,5 @@
-import solver_backtracking
-from solver import validate_hexdump, text_to_sequence, hexdump
+from solver_backtracking import solve
+from solver_helper import text_to_sequence
 
 
 def breach(hexdump, ram, datamine1, datamine2, datamine3):
@@ -53,7 +53,5 @@ def breach(hexdump, ram, datamine1, datamine2, datamine3):
 
     # Solve
     for seq in sequences:
-        solver_backtracking.solve(hexdump, seq, ram)
+        solve(hexdump, seq, ram)
         input('More? Following solutions will get worse.')
-
-
