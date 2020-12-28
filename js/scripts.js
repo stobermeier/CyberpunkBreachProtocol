@@ -91,13 +91,21 @@ function read_code_matrix() {
 }
 
 function text_to_sequence(sequence_text) {
-  if (sequence_text.length % 2 != 0) alert("Error processing sequence!")
+  if (sequence_text.length % 2 != 0) alert("Sequence does not have a proper length. Maybe you made a typo?")
 
   var sequence = []
   while (sequence_text.length != 0) {
       sequence.push(sequence_text.substring(0, 2))
       sequence_text = sequence_text.substring(2, sequence_text.length)
   }
+
+  var valid_elements = ['55', '7A', 'BD', '1C', 'E9']
+  for (var index = 0; index < sequence.length; index++){
+    if(!valid_elements.includes(sequence[index])){
+        alert(""+sequence[index]+" is not a valid element of a sequence. You made a typo.")
+    }
+  }
+
   return sequence
 }
 
