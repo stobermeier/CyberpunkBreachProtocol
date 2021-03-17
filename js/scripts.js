@@ -90,7 +90,7 @@ function read_code_matrix() {
   return code_matrix
 }
 
-function text_to_sequence(sequence_text) {
+function text_to_sequence(sequence_text, validate) {
   if (sequence_text.length % 2 != 0) alert("Sequence does not have a proper length. Maybe you made a typo?")
 
   var sequence = []
@@ -99,20 +99,22 @@ function text_to_sequence(sequence_text) {
       sequence_text = sequence_text.substring(2, sequence_text.length)
   }
 
-  var valid_elements = ['55', '7A', 'BD', '1C', 'E9', 'FF']
-  for (var index = 0; index < sequence.length; index++){
-    if(!valid_elements.includes(sequence[index])){
-        alert(""+sequence[index]+" is not a valid element of a sequence. You made a typo.")
+  if(validate){
+        var valid_elements = ['55', '7A', 'BD', '1C', 'E9', 'FF']
+        for (var index = 0; index < sequence.length; index++){
+            if(!valid_elements.includes(sequence[index])){
+                alert(""+sequence[index]+" is not a valid element of a sequence. You made a typo.")
+            }
+        }
     }
-  }
 
   return sequence
 }
 
 function find_best_sequence(ram) {
-  var datamine1 = text_to_sequence(document.getElementById('d1').value)
-  var datamine2 = text_to_sequence(document.getElementById('d2').value)
-  var datamine3 = text_to_sequence(document.getElementById('d3').value)
+  var datamine1 = text_to_sequence(document.getElementById('d1').value, true)
+  var datamine2 = text_to_sequence(document.getElementById('d2').value, true)
+  var datamine3 = text_to_sequence(document.getElementById('d3').value, true)
 
   console.log(datamine1)
   console.log(datamine2)
@@ -339,8 +341,8 @@ function solve_seq(code_matrix, seq, ram) {
 }
 
 function print_solution(solution_seq) {
-  var values = text_to_sequence(solution_seq[0])
-  var steps = text_to_sequence(solution_seq[1])
+  var values = text_to_sequence(solution_seq[0], true)
+  var steps = text_to_sequence(solution_seq[1], false)
 
   console.log("Showing solution for: ")
   console.log("Values: " + values)
