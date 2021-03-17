@@ -99,7 +99,7 @@ function text_to_sequence(sequence_text) {
       sequence_text = sequence_text.substring(2, sequence_text.length)
   }
 
-  var valid_elements = ['55', '7A', 'BD', '1C', 'E9']
+  var valid_elements = ['55', '7A', 'BD', '1C', 'E9', 'FF']
   for (var index = 0; index < sequence.length; index++){
     if(!valid_elements.includes(sequence[index])){
         alert(""+sequence[index]+" is not a valid element of a sequence. You made a typo.")
@@ -231,7 +231,7 @@ function find_best_sequence(ram) {
 }
 
 function validate_code_matrix(code_matrix) {
-  var valid_elements = ['55', '7A', 'BD', '1C', 'E9']
+  var valid_elements = ['55', '7A', 'BD', '1C', 'E9', 'FF']
 
   for (column = 0; column < 6; column++) {
       for (row = 0; row < 6; row++) {
